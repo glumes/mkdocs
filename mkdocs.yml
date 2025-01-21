@@ -1,0 +1,367 @@
+# 项目信息
+site_name: 音视频开发进阶 # 项目名称
+site_url: https://glumes.com # 我在nginx中使用的是8000端口，如果你使用的是80端口，可以直接写成https://localhost/。
+site_author: glumes # 作者
+site_description: >- # 项目描述
+  Welcome to Shaun's rabbit hole. This site serves as a personal knowledge base for me to record my thoughts and ideas. It is also a place for me to share my knowledge and experience with the world. I hope you find something useful here. 
+
+# 代码仓库信息
+# repo_name: Shuaiwen-Cui/Infinity # 仓库名称
+# repo_url: https://github.com/Shuaiwen-Cui/Infinity.git/ # 仓库地址
+
+# 版权信息
+copyright: Copyright &copy; 2023 ~ now | 🚀 Shuaiwen Cui (Shaun)
+
+# 配置
+theme:
+  # custom_dir: material/overrides # 自定义文件夹，对于个别页面，如果你不想使用主题的默认样式，可以在这里进行修改，使用里面的文件覆盖主题的默认文件。具体可以参考material官方文档。
+  name: material # 主题名称，Material已经是最优秀的选择了，相信我。
+  logo: static/image/icons8-media-64.png # logo 图片
+  language: zh # 默认语言
+  features: # 功能  
+    - announce.dismiss # 可以叉掉公告的功能
+    # - content.action.edit # 编辑按钮，似乎没啥用
+    # - content.action.view # 查看按钮，似乎没啥用
+    - content.code.annotate # 代码注释，具体不清楚
+    - content.code.copy # 复制代码按钮
+    # - content.code.select # 选择代码按钮
+    # - content.tabs.link # 链接标签
+    - content.tooltips # 不太清楚呢这个
+    # - header.autohide # 自动隐藏header
+    - navigation.expand # 默认展开导航栏
+    - navigation.footer # 底部导航栏
+    - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
+    # - navigation.instant # 瞬间加载 - 如果这个开着，那么语言切换后就会跳转至首页，所以我关掉了
+    - navigation.instant.prefetch # 预加载
+    - navigation.instant.progress # 进度条
+    - navigation.path # 导航路径， 目前好像没啥用
+    # - navigation.prune # 只构建可见的页面
+    - navigation.sections # 导航栏的section
+    - navigation.tabs # 顶级索引被作为tab
+    - navigation.tabs.sticky # tab始终可见
+    - navigation.top # 开启顶部导航栏
+    - navigation.tracking # 导航栏跟踪
+    - search.highlight # 搜索高亮
+    - search.share # 搜索分享
+    - search.suggest # 搜索建议
+    - toc.follow # 目录跟踪-页面右侧的小目录
+    # - toc.integrate # 目录跟踪集成到左侧大目录中
+  palette:
+    - media: "(prefers-color-scheme)" # 主题颜色
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)" # 浅色
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" # 深色
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font: # 字体，大概率不需要换
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png # 网站图标 似乎不需要管
+  icon: # 一些用到的icon
+    logo: logo
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+    tag:
+      default-tag: fontawesome/solid/tag
+      hardware-tag: fontawesome/solid/microchip
+      software-tag: fontawesome/solid/laptop-code
+
+# Plugins
+plugins:
+  - tags # 标签功能插件
+  - blog # 博客功能插件
+  - rss: # rss订阅插件 - 不太懂是干嘛的目前
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags 
+  # - social # 目前我开启会报错，还没研究透 
+  - search: # 搜索插件
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
+  - minify: # 压缩插件
+      minify_html: true
+  # - privacy # 隐私插件
+  # - i18n: # 多语言插件
+  #     docs_structure: suffix # 抄来的，不太懂
+  #     fallback_to_default: true # 抄来的，不太懂
+  #     reconfigure_material: true # 抄来的，不太懂
+  #     reconfigure_search: true # 抄来的，不太懂
+  #     languages: # 多语言配置 - 需要小心一点
+  #       - locale: en
+  #         default: true # 默认语言
+  #         name: English
+  #         build: true # 是否构建
+  #         # site_name: Infinity
+  #       - locale: zh
+  #         default: true
+  #         name: 简体中文
+  #         build: true
+  #         nav_translations: # 导航栏翻译，不可以有缩进
+  #           HOME: 首页
+  #           ABOUT: 关于
+  #           SPONSORSHIP: 赞助
+  #           CS: 计算机
+  #           CODING: 编程
+  #           index: 索引
+  #           context: 内容
+# Hooks - 讲真，这个东西我还没搞懂
+# hooks:
+#   - material/overrides/hooks/shortcodes.py
+#   - material/overrides/hooks/translations.py
+
+# 额外配置项
+extra:
+  ustom_urls:
+    - name: 
+  generator: false # 是否显示生成器
+  status: # 不是很懂有什么用
+    new: Recently added
+    deprecated: Deprecated
+  analytics: # 分析工具， 我反正没用到
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    feedback: # feedback form
+      title: Was this page helpful?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  # alternate: # 由上面那个i18n插件提供的多语言功能，这个似乎就不需要了。 这个是官方文档的例子，但是官方没有提供很详细的例子，所以我也不知道怎么用。
+  #   - name: English
+  #     link: /en/ 
+  #     lang: en
+  #   - name: Chinese
+  #     link: /zh/
+  #     lang: zh
+  # social: # 社交媒体
+  #   - icon: fontawesome/solid/house
+  #     link: http://www.cuishuaiwen.com/
+  #   - icon: fontawesome/brands/github
+  #     link: https://github.com/Shuaiwen-Cui
+  #   - icon: fontawesome/brands/linkedin
+  #     link: https://www.linkedin.com/in/shaun-shuaiwen-cui/
+  #   - icon: fontawesome/brands/researchgate
+  #     link: https://www.researchgate.net/profile/Shuaiwen-Cui
+  #   - icon: fontawesome/brands/orcid
+  #     link: https://orcid.org/0000-0003-4447-6687
+  #   - icon: fontawesome/brands/twitter
+  #     link: https://twitter.com/ShuaiwenC
+  tags: # 自定义标签
+    Default: default-tag
+    Hardware: hardware-tag
+    Software: software-tag
+  # consent: # 征求同意 Cookie
+  #   title: Cookie consent
+  #   description: >- 
+  #     We use cookies to recognize your repeated visits and preferences, as well
+  #     as to measure the effectiveness of our documentation and whether users
+  #     find what they're searching for. With your consent, you're helping us to
+  #     make our documentation better.
+
+# 扩展
+markdown_extensions: # markdown extensions
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# 导航树 - 请按照我的做法来做，否则可能无法正常工作。引号可以省略。开头的点和斜杠也可以省略 ("./HOME/about.md" 或 Home/about.md) 。注意，导航树这里的文件名是 filename.md 这样的，但在文件夹中，它实际上被命名为 filename.en.md 和 filename.zh.md。我猜测默认是英文，所以, index.en.md 和 index.md 是一样的。i18n插件会自动识别文件名，然后根据文件名的后缀来切换语言。所以，如果你想添加一个新页面，你需要添加两个文件，一个是 filename.en.md，另一个是 filename.zh.md。其中，filename.en.md 也可以被命名为 filename.md，但是 filename.zh.md 不能被命名为 filename.md，否则会导致无法识别。
+nav: 
+  - HOME: 
+      - "index.md"
+      - ABOUT: "./home/about.md"
+  - 安卓开发: 
+    - "":
+      - Framework:
+        - android/framework/android-start-activity-from-launcher-1.md
+        - android/framework/android-start-activity-from-launcher-2.md
+        - android/framework/android-start-activity-from-launcher-3.md
+        - android/framework/android-start-activity-from-launcher-4.md
+    - "":
+      - JNI:
+        - ddd JNI  操作: android/jni/android-jni-access-field-and-method.md
+        - android/jni/android-jni-array-operation.md
+        - android/jni/android-jni-basic-operation.md
+        - android/jni/android-jni-bitmap-operation.md
+        - android/jni/android-jni-cache-fieldid-and-methodid.md
+        - android/jni/android-jni-exception-handle.md
+        - android/jni/android-jni-invoke-constructor-method-and-super-method.md
+        - android/jni/android-jni-reference-manage-rules.md
+        - android/jni/android-jni-thread-operation.md
+        - android/jni/cmake-best-practices.md
+        - imooc-course-online.md
+
+    - android/android-av-beginner-resource.md
+    - android/android-camera-aspect-ratio--and-orientation.md
+    - android/android-change-skin-by-plugin.md
+    - android/android-layout-inflater.md
+    - android/android-lrucache.md
+    - android/android-rxjava.md
+    - android/android-start-service.md
+    - android/android-statemachine.md
+    - android/index.md
+    - android/kotlin-syntactic-sugar-usage-and-analysis.md
+    - android/okhttp-analysis.md
+    - android/retrofit-analysis.md
+    - android/rust-compile-so-library.md
+    - android/rxjava-wrapper-callback.md
+    - android/rxjava-wrapper-dialog.md
+    - android/stb-image-introduce.md
+  - 编程语言:
+    - code/c++-multi-thread.md
+    - code/c++-stl-container-overview.md
+    - code/c++-template-1.md
+    - code/c++-template-2.md
+    - code/c++-template-3.md
+    - code/c++-template-4.md
+    - code/c++-template-5.md
+    - code/c++-template-6.md
+    - code/c++-template-7.md
+    - code/java-multithread-overview.md
+  - FFmpeg:
+    - ffmpeg/007-parse-mp4-info.md
+    - ffmpeg/av-beginner-001.md
+    - ffmpeg/av-beginner-010.md
+    - ffmpeg/encode-and-decode-summary.md
+    - ffmpeg/ffmpeg-call-android-mediacodec.md
+    - ffmpeg/ffmpeg-call-mediacodec-deocde-to-surface.md
+    - ffmpeg/ffmpeg-convert-mpeg-to-pcm.md
+    - ffmpeg/ffmpeg-decode-drop-frame.md
+    - ffmpeg/ffmpeg-vulkan-support.md
+    - ffmpeg/get-video-thumbnail.md
+    - ffmpeg/graphics-resources-for-spring-festival.md
+    - ffmpeg/how-to-compile-ffmpeg-library.md
+    - ffmpeg/how-to-scale-h264-video-file.md
+    - ffmpeg/mac-mp4-info.md
+    - ffmpeg/multimedia-new-beginner.md
+    - ffmpeg/planet-player-project-configure-ffmpeg.md
+    - ffmpeg/planet-player-project.md
+    - ffmpeg/understand-yuv-format.md
+    - ffmpeg/video-green-black-screen.md
+    - ffmpeg/video-render-rate-and-decode-rate.md
+    - ffmpeg/video-seek-with-b-frame.md
+    - ffmpeg/webrtc-and-ffmepg.md
+    - ffmpeg/what-is-mp4-1.md
+    - ffmpeg/what-is-mp4-2.md
+    - ffmpeg/windows-compile-ffmpeg-with-libx264.md
+    - ffmpeg/windows-mp4-info.md
+  - OpenGL:
+    - opengl/01-what-is-render-engine.md
+    - opengl/2021-render-engine.md
+    - opengl/libjpeg-turbo-compile-and-practice.md
+    - opengl/libpng-compile-and-practice.md
+    - opengl/load-texture-from-android-assets-by-ndk.md
+    - opengl/opengl-axially-aligned-bounding-box.md
+    - opengl/opengl-cat-renderer.md
+    - opengl/opengl-depth-test.md
+    - opengl/opengl-draw-bezier-line.md
+    - opengl/opengl-draw-grid-optimize.md
+    - opengl/opengl-egl-usage.md
+    - opengl/opengl-framebuffer-object-usage.md
+    - opengl/opengl-glsl-2-mark.md
+    - opengl/opengl-glsl-3-mark.md
+    - opengl/opengl-gpuimage-analysis.md
+    - opengl/opengl-handle-video-frame-and-replace-content.md
+    - opengl/opengl-share-context.md
+    - opengl/opengl-transition.md
+    - opengl/opengl-tutorial-alpha-test.md
+    - opengl/opengl-tutorial-ambient-light.md
+    - opengl/opengl-tutorial-color-blend.md
+    - opengl/opengl-tutorial-coordinate-system.md
+    - opengl/opengl-tutorial-diffuse-light.md
+    - opengl/opengl-tutorial-draw-basic-shape.md
+    - opengl/opengl-tutorial-draw-point.md
+    - opengl/opengl-tutorial-face-culling-usage.md
+    - opengl/opengl-tutorial-gldrawelements-method.md
+    - opengl/opengl-tutorial-import-3d-object.md
+    - opengl/opengl-tutorial-light-mix.md
+    - opengl/opengl-tutorial-projection-matrix.md
+    - opengl/opengl-tutorial-scissor-test.md
+    - opengl/opengl-tutorial-share.md
+    - opengl/opengl-tutorial-specular-light.md
+    - opengl/opengl-tutorial-texture.md
+    - opengl/opengl-tutorial-vertex-array-object-usage.md
+    - opengl/opengl-tutorial-vertex-buffer-object-usage.md
+    - opengl/opengl-tutorial-view-matrix.md
+    - opengl/run-learnopengl-code-on-xcode.md
+    - opengl/shader-tool-kodelife-introduce.md
+  - SDL:
+    - sdl/av-beginner-001.md
+    - sdl/av-beginner-002.md
+    - sdl/av-beginner-003.md
+    - sdl/av-beginner-004.md
+    - sdl/av-beginner-005.md
+    - sdl/av-beginner-006.md
+    - sdl/av-beginner-007.md
+    - sdl/av-beginner-008.md
+  - blog: 
+      - blog/index.md
+
