@@ -30,14 +30,15 @@ jobs:
       - run: pip install mkdocs-minify-plugin
       - run: mkdocs gh-deploy --force
       - run: |
-         git remote add target https://${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git
+
+         git remote add origin https://github.com/glumes/glumes.github.io.git
          git push -u target main 
 
 
       # - name: Clone destination repository
       #   run: |
       #     git clone https://glumes:${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git ./destination_repo
-
+      #   git remote add target https://${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git
       # - name: Backup all files in the repository
       #   run: |
       #    mkdir -p dist/backup  // 创建备份文件
