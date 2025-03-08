@@ -31,7 +31,7 @@ jobs:
       - run: mkdocs gh-deploy --force
       - run: |
 
-         git remote add origin https://github.com/glumes/glumes.github.io.git
+         git remote add target https://github.com/glumes/glumes.github.io.git
          git push -u target main 
 
 
