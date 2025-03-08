@@ -32,7 +32,7 @@ jobs:
       - run: |
          git config --local user.email ${{ secrets.USER_EMAIL }}
          git config --local user.name ${{ secrets.USER_NAME }}
-         git remote add target https://${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git
+         git remote add target https://glumes:${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git
          git push -u target main 
 
 
