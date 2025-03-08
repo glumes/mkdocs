@@ -32,7 +32,7 @@ jobs:
 
       - name: Clone destination repository
         run: |
-          git clone glumes:${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git ./destination_repo
+          git clone https://glumes:${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git ./destination_repo
 
       - name: Backup all files in the repository
         run: |
