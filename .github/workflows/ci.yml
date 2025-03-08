@@ -42,13 +42,13 @@ jobs:
       #   git remote add target https://${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git
       # - name: Backup all files in the repository
       #   run: |
-      #    mkdir -p dist/backup  // 创建备份文件
+      #    mkdir -p dist/backup  // 创建备份文件2
       #    cp -r destination_repo/* dist/backup/
 
       # - name: Remove all files from the repository
       #   run: |
       #     cd destination_repo
-      #     git rm -r *
+      #     git rm -r *  
 
       # - name: Commit and push changes
       #   run: |
