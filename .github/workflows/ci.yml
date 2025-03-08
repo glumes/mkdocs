@@ -30,8 +30,9 @@ jobs:
       - run: pip install mkdocs-minify-plugin
       - run: mkdocs gh-deploy --force
       - run: |
-
-         git remote add target https://github.com/glumes/glumes.github.io.git
+         git config --local user.email ${{ secrets.USER_EMAIL }}
+         git config --local user.name ${{ secrets.USER_NAME }}
+         git remote add target https://${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git
          git push -u target main 
 
 
