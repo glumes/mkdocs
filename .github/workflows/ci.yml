@@ -32,7 +32,7 @@ jobs:
 
       - name: Clone destination repository
         run: |
-          git clone glumes:${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git 
+          git clone glumes:${{ secrets.API_TOKEN_GITHUB }}@github.com/glumes/glumes.github.io.git ./destination_repo
 
       - name: Backup all files in the repository
         run: |
@@ -52,13 +52,13 @@ jobs:
           git commit -m "Remove all files"
           git push origin main
 
-      - name: Push to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'dist'   // 要提交的目标文件
-          destination-github-username:  ${{ secrets.STORE_USER_NAME }}
-          destination-repository-name: ${{ secrets.STORE_ANOTHER_NAME }}
-          user-email: ${{ secrets.USER_EMAIL }}
-          target-branch: main  // 目标分支
+      # - name: Push to another repository
+      #   uses: cpina/github-action-push-to-another-repository@main
+      #   env:
+      #     API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      #   with:
+      #     source-directory: 'dist'   
+      #     destination-github-username:  ${{ secrets.STORE_USER_NAME }}
+      #     destination-repository-name: ${{ secrets.STORE_ANOTHER_NAME }}
+      #     user-email: ${{ secrets.USER_EMAIL }}
+      #     target-branch: main  // 目标分支
